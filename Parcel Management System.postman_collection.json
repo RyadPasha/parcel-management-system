@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "53fbc73b-7a7a-47cd-abcd-77dec01dccf9",
+		"name": "Parcel Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7514218",
+		"_collection_link": "https://restless-shuttle-786228.postman.co/workspace/My-Workspace~676a6c8b-8939-4c50-8c94-61afe10afcae/collection/7514218-53fbc73b-7a7a-47cd-abcd-77dec01dccf9?action=share&source=collection_link&creator=7514218"
+	},
+	"item": [
+		{
+			"name": "Parcels API",
+			"item": [
+				{
+					"name": "Add Parcel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"block_number\": 202,\n    \"neighbourhood\": \"Al Malaz\",\n    \"subdivision_number\": 3,\n    \"land_use_group\": 2,\n    \"description\": \"A residential parcel in Al Malaz, Riyadh, ideal for housing development.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/parcels/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"parcels",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Parcels (w/ filters)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/parcels",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"parcels"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Residential parcel",
+									"disabled": true
+								},
+								{
+									"key": "block_number",
+									"value": "101",
+									"disabled": true
+								},
+								{
+									"key": "ordering",
+									"value": "-creation_date",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Parcel by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/parcels/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"parcels",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brokers API",
+			"item": [
+				{
+					"name": "Add Broker",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Abdullah Al Harbi\",\n    \"type\": 2,\n    \"phone_number\": \"0501234567\",\n    \"email\": \"abdullah.alharbi@realestate.sa\",\n    \"address\": \"King Fahd Road, Riyadh\",\n    \"bio\": \"A broker with expertise in commercial properties across Saudi Arabia.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/brokers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"brokers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Brokers (w/ filters)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/brokers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"brokers"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "creation_date",
+									"value": "2024-11-22T01:30:03.066475Z",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "mohamed@ryad.dev",
+									"disabled": true
+								},
+								{
+									"key": "ordering",
+									"value": "-creation_date",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Broker by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/brokers/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"brokers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Offers API",
+			"item": [
+				{
+					"name": "Add Offer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Commercial Development in King Abdullah Economic City\",\n    \"description\": \"An opportunity to develop a commercial complex in King Abdullah Economic City.\",\n    \"broker\": 1,\n    \"parcels\": [1, 2],\n    \"price_per_meter\": 850.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/offers/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"offers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Offers (w/ filters)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/offers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"offers"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Commercial Development",
+									"disabled": true
+								},
+								{
+									"key": "ordering",
+									"value": "price_per_meter",
+									"disabled": true
+								},
+								{
+									"key": "price_per_meter_min",
+									"value": "500",
+									"disabled": true
+								},
+								{
+									"key": "price_per_meter_max",
+									"value": "1000",
+									"disabled": true
+								},
+								{
+									"key": "broker",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Offer by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/offers/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"offers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Offer (Full Update)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Commercial Development in King Abdullah Economic City\",\n    \"description\": \"An opportunity to develop a commercial complex in King Abdullah Economic City.\",\n    \"broker\": 1,\n    \"parcels\": [1, 2],\n    \"price_per_meter\": 850.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/offers/1/update/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"offers",
+								"1",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Offer (Partial Update)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Commercial Development in King Abdullah Economic City\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/offers/1/update/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"offers",
+								"1",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Offer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer default-secret-key",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/offers/1/delete/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"offers",
+								"1",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "development-secret-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
